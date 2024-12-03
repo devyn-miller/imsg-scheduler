@@ -1,0 +1,13 @@
+<Frame defaultPage="components/message-list">
+    <TabView>
+        <TabViewItem title="Messages">
+            <Frame defaultPage="components/message-list"/>
+        </TabViewItem>
+        <TabViewItem title="New Message">
+            <Frame defaultPage="components/message-compose"/>
+        </TabViewItem>
+        <TabViewItem title="Drafts">
+            <Frame defaultPage="components/message-list"/>
+        </TabViewItem>
+    </TabView>
+</Frame>

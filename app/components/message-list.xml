@@ -1,0 +1,11 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ListView items="{{ messages }}" itemTap="{{ onItemTap }}" class="list-group">
+        <ListView.itemTemplate>
+            <StackLayout class="list-group-item">
+                <Label text="{{ recipient }}" class="text-primary"/>
+                <Label text="{{ content }}" textWrap="true"/>
+                <Label text="{{ scheduledTime }}" class="text-muted"/>
+            </StackLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</Page>

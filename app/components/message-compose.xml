@@ -1,0 +1,34 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ScrollView>
+        <StackLayout class="p-4">
+            <GridLayout rows="auto" columns="*, auto" class="mb-2">
+                <TextField hint="Search Contacts" text="{{ searchQuery }}" col="0"/>
+                <Button text="📞" tap="{{ showContactPicker }}" col="1" class="-outline"/>
+            </GridLayout>
+            
+            <TextField hint="Recipient" text="{{ recipient }}" class="input mb-2"/>
+            <TextView hint="Message" text="{{ content }}" class="input h-32 mb-2"/>
+            
+            <DateTimePicker date="{{ scheduledTime }}" class="mb-2"/>
+            
+            <StackLayout class="mb-4">
+                <Label text="Scheduling Options" class="font-bold mb-2"/>
+                <Switch checked="{{ isRecurring }}" text="Recurring Message"/>
+                <Switch checked="{{ conditions.weekdaysOnly }}" text="Weekdays Only"/>
+                
+                <GridLayout rows="auto" columns="*, *" class="mb-2" visibility="{{ conditions.weekdaysOnly ? 'visible' : 'collapsed' }}">
+                    <TimePicker time="{{ conditions.timeRange.start }}" col="0"/>
+                    <TimePicker time="{{ conditions.timeRange.end }}" col="1"/>
+                </GridLayout>
+            </StackLayout>
+
+            <Button text="Schedule" tap="{{ onSchedule }}" class="-primary mb-2"/>
+            <Button text="Save Draft" tap="{{ onSaveDraft }}" class="-outline mb-2"/>
+            
+            <GridLayout rows="auto" columns="*, *" class="mt-4">
+                <Button text="Import" tap="{{ onImport }}" col="0" class="-outline"/>
+                <Button text="Export" tap="{{ onExport }}" col="1" class="-outline"/>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

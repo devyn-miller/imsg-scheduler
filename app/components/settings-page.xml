@@ -1,0 +1,45 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="App Settings" class="text-2xl font-bold mb-4"/>
+            
+            <!-- Theme Settings -->
+            <Label text="Appearance" class="font-bold mb-2"/>
+            <GridLayout columns="*, auto" class="mb-4">
+                <Label text="Dark Mode" col="0"/>
+                <Switch checked="{{ isDarkMode }}" col="1"/>
+            </GridLayout>
+
+            <!-- Security Settings -->
+            <Label text="Security" class="font-bold mb-2"/>
+            <GridLayout rows="auto, auto" columns="*, auto" class="mb-4">
+                <Label text="Use Biometrics" row="0" col="0"/>
+                <Switch checked="{{ useBiometrics }}" row="0" col="1"/>
+                
+                <Label text="Change PIN" row="1" col="0"/>
+                <Button text="Change" tap="{{ changePin }}" row="1" col="1" class="-outline"/>
+            </GridLayout>
+
+            <!-- Analytics Settings -->
+            <Label text="Privacy" class="font-bold mb-2"/>
+            <GridLayout columns="*, auto" class="mb-4">
+                <Label text="Usage Analytics" col="0"/>
+                <Switch checked="{{ analyticsEnabled }}" col="1"/>
+            </GridLayout>
+
+            <!-- Backup & Restore -->
+            <Label text="Data Management" class="font-bold mb-2"/>
+            <GridLayout rows="auto, auto" columns="*" class="mb-4">
+                <Button text="Export All Data" tap="{{ exportData }}" row="0" class="-outline mb-2"/>
+                <Button text="Import Data" tap="{{ importData }}" row="1" class="-outline"/>
+            </GridLayout>
+
+            <!-- About Section -->
+            <StackLayout class="mt-4">
+                <Label text="About" class="font-bold mb-2"/>
+                <Label text="{{ appVersion }}" class="text-gray-500"/>
+                <Button text="View Logs" tap="{{ viewLogs }}" class="-outline mt-2"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

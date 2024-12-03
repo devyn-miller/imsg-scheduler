@@ -1,0 +1,21 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="p-4">
+            <SearchBar hint="Search templates..." text="{{ searchQuery }}" />
+            <Button text="Add New Template" tap="{{ showTemplateForm }}" class="-primary mb-2" />
+        </StackLayout>
+        
+        <ListView row="1" items="{{ templates }}" itemTap="{{ onTemplateTap }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="list-group-item p-2">
+                    <StackLayout col="0">
+                        <Label text="{{ name }}" class="font-bold"/>
+                        <Label text="{{ content }}" textWrap="true" class="text-gray-600"/>
+                        <Label text="{{ category }}" class="text-xs text-gray-400"/>
+                    </StackLayout>
+                    <Button col="1" text="Use" tap="{{ $parent.useTemplate }}" class="-outline"/>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
